@@ -25,6 +25,6 @@ export const getEvents = async (req, res, next) => {
   }
 }
 //update events by ID using findById
-// export const updateEvent = async (req, res, next) => {
-//   const uodate_event = await EventModel.findByIdAndUpdate()
-// }
+export const updateEvent = async (req, res, next) => {
+  const uodate_event = await EventModel.findByIdAndUpdate(req.params.id)
+}
