@@ -26,5 +26,23 @@ export const getEvents = async (req, res, next) => {
 }
 //update events by ID using findById
 export const updateEvent = async (req, res, next) => {
-  const uodate_event = await EventModel.findByIdAndUpdate(req.params.id)
+  console.log('require', req.body)
+  try {
+    const updateEventById = await EventModel.findByIdAndUpdate(req.params.id)
+    res.json(updateEventById)
+  } catch (error) {
+    next(error)
+
+  }
+}
+
+// deleting event by ID
+export const deleteEvent = async (req, res, next) => {
+  console.log('require', req.body)
+  try {
+    const deleteEventById = await EventModel.findAndDeleteById(req.params.id)
+    res.json(deleteEventById)
+  } catch (error) {
+    next(error)
+  }
 }
