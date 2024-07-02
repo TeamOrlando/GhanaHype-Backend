@@ -14,6 +14,17 @@ export const addEvent = async (req, res, next) => {
 
 }
 
+//get single event by ID
+
+export const getEvent = async (req, res, next) => {
+  try {
+    const getEventById = await EventModel.findById(req.params.body)
+    res.json(getEventById)
+  } catch (error) {
+    next(error)
+  }
+}
+
 //getting all events from db using the find Method
 export const getEvents = async (req, res, next) => {
   console.log('request', req.body)
